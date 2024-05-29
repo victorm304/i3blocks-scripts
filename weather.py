@@ -42,5 +42,9 @@ if url.status_code == 200:
     elif main.startswith('Snow'):
         print(f"{icone_neve}  {temp}{simbolo_celsius} - {city}/{country}")
     
+    elif main.startswith('Mist'):
+        print(f"{icone_fog}  {temp}{simbolo_celsius} - {city}/{country}")
+    
     elif main.startswith('Fog'):
         print(f"{icone_fog}  {temp}{simbolo_celsius} - {city}/{country}")
+        
