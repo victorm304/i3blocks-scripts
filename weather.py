@@ -25,7 +25,7 @@ if url.status_code == 200:
     dados = url.json()
     main = dados.get('weather')[0]['main']
     temp = kelvin_to_celsius(dados['main']['temp'])
-    country = dados.get('sys').get('country')
+    country = dados['sys']['country']
     
     if main.startswith('Cloud'):
         print(f"{icone_nuvem}  {temp}{simbolo_celsius} - {city}/{country}")
