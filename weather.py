@@ -23,8 +23,8 @@ url = get(f'https://api.openweathermap.org/data/2.5/weather?q={city},{country}&l
 
 if url.status_code == 200:
     dados = url.json()
-    main = dados.get('weather')[0].get('main')
-    temp = kelvin_to_celsius(dados.get('main').get('temp'))
+    main = dados.get('weather')[0]['main']
+    temp = kelvin_to_celsius(dados['main']['temp'])
     country = dados.get('sys').get('country')
     
     if main.startswith('Cloud'):
@@ -47,4 +47,3 @@ if url.status_code == 200:
     
     elif main.startswith('Fog'):
         print(f"{icone_fog}  {temp}{simbolo_celsius} - {city}/{country}")
-        
