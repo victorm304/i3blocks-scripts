@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 from httpx import get
 
-url = get('https://api.hgbrasil.com/finance')
+url = get('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL')
 btc_icon = '₿'
 
 if url.status_code == 200:
     dados = url.json()
-    btc = dados.get('results').get('currencies').get('BTC').get('buy')
-    print(f'{btc_icon} {btc} BRL')
+    btc_brl = dados['BTCBRL']['bid']
+    print(f'{btc_icon} {btc_brl} BRL')
