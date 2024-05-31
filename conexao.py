@@ -2,10 +2,10 @@
 from subprocess import check_output
 
 
-saida = check_output(['ifconfig', 'enp2s0']).decode('utf-8')
+saida = check_output(['ip','link', 'show', 'enp2s0']).decode('utf-8')
 
-if saida[32:39] == 'RUNNING':
+if 'state UP' in saida:
     print('📶 ')
-
+    
 else:
     print('🚫 ')
